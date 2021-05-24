@@ -1,125 +1,86 @@
-# comandos-git
-Comandos básicos do Git
+# Comandos git
 
-# Comandos básicos GitHub
-
-# Lista as configurações.
+### Configurações
+```
 git config --list
-
-# Alterar nome e e-mail.
+```
+Alterar nome e e-mail.
+```
 git config --global --replace-all user.name "Éderson Lehugeur"
-git config --global --replace-all user.email "ederson-lehugeur@tjmrs.jus.br"
-
-# Reset nome e e-mail
+git config --global --replace-all user.email "ederson-lehugeur@email"
+```
+Resetar nome e e-mail.
+```
 git config --global --unset-all user.name
 git config --global --unset-all user.email
-
-# Configurar editor
+```
+Configurar editor
+```
 git config --global core.editor (emacs|vim|nano)
+```
 
-# Criar um repositório git ou reinicializar um existente.
-git init
-
-# Clonar de uma url.
-git clone https://github.com/ederson-lehugeur/site
-
-# Atualizar repositório local com a mais nova versão.
-git pull
+### Stash
+```
 git stash
-git stash pop
-
------------------------------------------------------
-# Listar todos os diretórios de trabalho na pilha.
 git stash list
-
-# Visualizar um diretório de trabalho.
+git stash apply | git stash pop
+```
+```
 git stash show | git stash show [stash@{1}]
-
-# Deletar um diretório de trabalho.
 git stash drop | git stash drop [stash@{1}]
-
-# Deletar todos.
 git stash clear
+```
 
-git stash
-
-git pull --rebase | git pull
-
-// Novas alterações
-// git push
-
-git stash pop | git stash apply [stash@{2}]
------------------------------------------------------
-
-# Status do repositório atual.
-git status
-
-# Mapeia um ou vários arquivos inserindo no arquivo index no 
-# diretório .git. Preparar para o versionamento.
-git add <arquivo> ou <--all>
-
-# Dar commit dos arquivos modificados os preparando automaticamente.
-git commit -am "Mensagem do commit"
-
-# Atualizar repositório remoto com as novas alterações.
-git push
-
-# Log com todas as operações feitas.
+### Logs
+```
 git log
 git log --decorate
-
-# Log com filtros.
 git log --author="Éderson"
-
-# Mensurar os commits de cada autor.
+```
+Commits de cada autor.
+```
 git shortlog
-
-# Apenas a quantidade de commits de cada autor.
+```
+Quantidade de commits de cada autor.
+```
 git shortlog -sn
-
-# Visualizar os logs de forma "gráfica".
+```
+Visualizar os logs de forma gráfica.
+```
 git log --graph
+```
 
-# Corrigir autor do commit.
-git commit --amend --author="Éderson Lehugeur <ederson-lehugeur@tjmrs.jus.br>"
+### Commits
+Corrigir autor do commit.
+```
+git commit --amend --author="Éderson Lehugeur <ederson-lehugeur@email>"
+```
 
-# Criar um novo branch(ramificação).
-git checkout -b <new_branch>
-
-# Enviar um branch para o origin. Entrar no branch e:
-git push --set-upstream origin <name_branch>
-
-# Juntar uma ramificação em outra. (Respeita a ordem
-# cronológica, porém cria um novo commit apenas para o merge)
-git merge <name_branch>
-# Exemplo (dev -> test)
-git checkout test
-
-git pull
-
-git merge dev
-
-# Juntar uma ramificação em outra com rebase. (Não respeita
-# a ordem cronológica)
-git rebase <name_branch>
-
-# Mostrar todas as ramificações e a atual.
-git branch [-a (Listar todos branches locais e remotos)][-r (Listar apenas os branches locais)]
-
-# Trocar de branch.
-git checkout <name_branch>
-
-# Deletar um branch.
-git branch -D <name_branch>
-
-# Deletar um branch no origin.
-git push origin :<name_branch>
-
-# Voltar o código fonte para um commit especifico.
-git reset --hard "nome da tag ou Hash do Commit!"
-# Realizar o push da operação.
+### Branches
+```
+git checkout -b [NEW_BRANCH]
+```
+Enviar branch para o origin.
+```
+git push --set-upstream origin [BRANCH]
+```
+Listar branches
+```
+git branch -a
+git branch -r
+```
+Deletar branch no origin.
+```
+git push origin :[BRANCH]
+```
+# Voltar para um commit específico.
+```
+git reset --hard "tag ou hash do commit"
+```
+```
 git push origin HEAD --force
-
+```
+###--------------------------------------------
 # Reseta o HEAD. Permite a atualização do repositório local 
 # sobrescrevendo o conteúdo existente.
 git reset --hard origin/master
