@@ -55,6 +55,13 @@ Corrigir autor do commit.
 ```
 git commit --amend --author="Éderson Lehugeur <ederson-lehugeur@email>"
 ```
+Voltar para um commit específico.
+```
+git reset --hard "tag ou hash do commit"
+```
+```
+git push origin HEAD --force
+```
 
 ### Branches
 ```
@@ -73,19 +80,11 @@ Deletar branch no origin.
 ```
 git push origin :[BRANCH]
 ```
-# Voltar para um commit específico.
+Reseta o HEAD. Permite a atualização do repositório local sobrescrevendo o conteúdo existente.
 ```
-git reset --hard "tag ou hash do commit"
-```
-```
-git push origin HEAD --force
-```
-###--------------------------------------------
-# Reseta o HEAD. Permite a atualização do repositório local 
-# sobrescrevendo o conteúdo existente.
 git reset --hard origin/master
-# ou
 git reset --hard origin/<branch_name>
+```
 
 # Remover arquivo do staged.
 git reset HEAD <file>
